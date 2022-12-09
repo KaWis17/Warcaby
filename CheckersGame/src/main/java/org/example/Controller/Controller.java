@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Controller;
+
+import org.example.Model.Model;
+import org.example.View.View;
 
 public abstract class Controller {
 

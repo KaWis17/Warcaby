@@ -1,4 +1,6 @@
-package org.example;
+package org.example.View;
+
+import org.example.Model.Model;
 
 public interface View {
     Model model = null;

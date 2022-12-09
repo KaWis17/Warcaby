@@ -1,9 +1,8 @@
-package org.example;
+package org.example.View;
 
-public class CompositeView implements View{
+import org.example.Model.Model;
 
-View[] views;
-
+public class specificViewLeaf implements View {
 @Override
 public void setModel(Model model) {
 
