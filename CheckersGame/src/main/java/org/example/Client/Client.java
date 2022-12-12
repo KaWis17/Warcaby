@@ -3,6 +3,7 @@ package org.example.Client;
 import org.example.Controller.Controller;
 import org.example.Controller.SpecificController;
 import org.example.Model.Model;
+import org.example.Model.Rules.ClassicRules;
 import org.example.Model.SpecificModel;
 import org.example.View.CompositeView;
 import org.example.View.View;
@@ -30,7 +31,7 @@ public static void main(String[] args) {
 
     //Driver
     View compositeView = new CompositeView();
-    Model model = new SpecificModel();
+    Model model = new SpecificModel(new ClassicRules());
     Controller controller = new SpecificController();
 
     controller.setModel(model);
