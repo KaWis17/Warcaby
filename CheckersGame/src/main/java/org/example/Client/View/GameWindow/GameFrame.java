@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import org.example.Client.View.View;
 
 public class GameFrame extends JFrame implements View {
-  GameFrame(){
+  public GameFrame(){
     setTitle("Warcaby");
     setSize(500, 500);
     setDefaultCloseOperation(EXIT_ON_CLOSE);

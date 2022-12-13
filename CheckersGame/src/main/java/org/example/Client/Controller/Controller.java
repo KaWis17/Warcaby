@@ -6,7 +6,7 @@ import org.example.Client.View.View;
 public abstract class Controller {
 
     protected View view;
-    private Model model;
+    protected Model model;
 
     public void setModel(Model model){
         this.model = model;
@@ -17,4 +17,7 @@ public abstract class Controller {
     }
 
     public abstract void userAction1();
+
+    public void setPort(int localPort) {
+    }
 }

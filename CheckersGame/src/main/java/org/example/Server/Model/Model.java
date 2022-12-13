@@ -21,6 +21,7 @@ public abstract class Model {
     public Model(GameRules rules){
         this.rules=rules;
     }
-    public abstract void modelOperation1();
+    public abstract void initialOperation(String playerOneName);
+
 }
 

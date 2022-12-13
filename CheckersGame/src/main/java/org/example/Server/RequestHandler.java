@@ -23,7 +23,6 @@ public void run() {
         while (input != null) {
             //Print out equation and count
             System.out.println(input);
-            Server.printCount();
 
             //Block until another message
             input = receiveMsg();

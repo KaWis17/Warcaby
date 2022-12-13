@@ -30,10 +30,10 @@ public static void main(String[] args) {
  * @param
  ****************************************************/
 
-public static void initConnection(String hostName){
-    System.out.println("Host: " + hostName + " Port: " + 53964);
+public static void initConnection(int port){
+    System.out.println("Host: localhost, Port: " + port);
     try {
-        Socket s1 = new Socket("localhost", 53964);
+        Socket s1 = new Socket("localhost", port);
         out = new ObjectOutputStream(s1.getOutputStream());
         in = new ObjectInputStream(s1.getInputStream());
     } catch (IOException e) {

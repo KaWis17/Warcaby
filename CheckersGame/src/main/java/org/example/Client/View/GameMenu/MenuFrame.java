@@ -18,6 +18,9 @@ public class MenuFrame extends JFrame implements View {
     getContentPane().requestFocusInWindow();
   }
 
+  public void disposeWindow(){
+    dispose();
+  }
   @Override
   public void display() {
     this.setVisible(true);

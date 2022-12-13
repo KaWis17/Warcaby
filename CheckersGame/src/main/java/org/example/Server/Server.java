@@ -3,29 +3,38 @@ package org.example.Server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import org.example.Client.Controller.Controller;
+import org.example.Client.Controller.SpecificController;
+import org.example.Server.Model.Model;
+import org.example.Server.Model.Rules.ClassicRules;
+import org.example.Server.Model.SpecificModel;
 
-public class Server {
-private static Integer count;
+public class Server extends Thread {
 
-public static void main(String[] args) {
-    Integer portNum = 0;
-    count = 0;
+    Model model;
+    Controller controller;
 
-    try (ServerSocket ss = new ServerSocket(portNum)) {
-        System.out.println("Port number: "+ss.getLocalPort());
-        while (true) {
-            Socket client = ss.accept();
-
-            RequestHandler rh = new RequestHandler(client);
-            rh.start();
-            System.out.println("A client has connected!");
-        }
-    } catch (IOException e1) {
-        e1.printStackTrace();
+    public Server(Controller controller) {
+        model = new SpecificModel(new ClassicRules());
+        controller.setModel(model);
+        this.controller = controller;
+        run();
     }
-}
 
-public static void printCount() {
-    System.out.println("Number of successfully calculated math equations: " + (++count));
-}
+    @Override
+    public void run() {
+        try (ServerSocket ss = new ServerSocket(0)) {
+            controller.setPort(ss.getLocalPort());
+            System.out.println("Port number: " + ss.getLocalPort());
+            while (true) {
+                Socket client = ss.accept();
+
+                RequestHandler rh = new RequestHandler(client);
+                rh.start();
+                System.out.println("A client has connected!");
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 }
