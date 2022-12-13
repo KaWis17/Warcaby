@@ -1,10 +1,10 @@
-package org.example.Model.ToBeNamed;
+package org.example.Server.Model.ToBeNamed;
 
-import org.example.Model.state;
+import org.example.Server.Model.state;
 
 public class Field {
     boolean isWhite;
-    org.example.Model.state state;
+    org.example.Server.Model.state state;
 
     public Field(boolean isWhite,state state) {
         this.isWhite = isWhite;

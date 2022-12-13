@@ -1,12 +1,9 @@
 package org.example.Client;
 
-import org.example.Controller.Controller;
-import org.example.Controller.SpecificController;
-import org.example.Model.Model;
-import org.example.Model.Rules.ClassicRules;
-import org.example.Model.SpecificModel;
-import org.example.View.CompositeView;
-import org.example.View.View;
+import org.example.Client.Controller.Controller;
+import org.example.Client.Controller.SpecificController;
+import org.example.Client.View.GameMenu.MenuFrame;
+import org.example.Client.View.View;
 
 import java.io.*;
 import java.net.Socket;
@@ -16,11 +13,27 @@ private static ObjectInputStream in;
 private static ObjectOutputStream out;
 
 public static void main(String[] args) {
-    String hostName = args[0];
-    Integer port = Integer.parseInt(args[1]);
-    System.out.println("Host: " + hostName + " Port: " + port);
+
+    //Driver
+    View view = new MenuFrame();
+    Controller controller = new SpecificController();
+    controller.setView(view);
+
+    controller.userAction1();
+
+    //controller.addObserver(compositeView);
+    //compositeView.init();
+}
+
+/****************************************************
+ * Sends Message of Move to Server to be Validated
+ * @param
+ ****************************************************/
+
+public static void initConnection(String hostName){
+    System.out.println("Host: " + hostName + " Port: " + 53964);
     try {
-        Socket s1 = new Socket(hostName, port);
+        Socket s1 = new Socket("localhost", 53964);
         out = new ObjectOutputStream(s1.getOutputStream());
         in = new ObjectInputStream(s1.getInputStream());
     } catch (IOException e) {
@@ -28,22 +41,7 @@ public static void main(String[] args) {
         System.out.println("Could not connect. Check the hostname and port.");
         System.exit(0);
     }
-
-    //Driver
-    View compositeView = new CompositeView();
-    Model model = new SpecificModel(new ClassicRules());
-    Controller controller = new SpecificController();
-
-    controller.setModel(model);
-    controller.setView(compositeView);
-    //controller.addObserver(compositeView);
-    //compositeView.init();
 }
-
-/****************************************************
- * Sends Message of Move to Server to be Validated
- * @param m1
- ****************************************************/
 
 public static void sendMsg(Object m1) {
     try {

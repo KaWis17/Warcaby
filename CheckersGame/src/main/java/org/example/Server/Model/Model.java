@@ -1,8 +1,8 @@
-package org.example.Model;
+package org.example.Server.Model;
 
-import org.example.Model.Rules.GameRules;
-import org.example.Model.ToBeNamed.Board;
-import org.example.View.View;
+import org.example.Server.Model.Rules.GameRules;
+import org.example.Server.Model.ToBeNamed.Board;
+import org.example.Client.View.View;
 
 public abstract class Model {
     //variables from design pattern

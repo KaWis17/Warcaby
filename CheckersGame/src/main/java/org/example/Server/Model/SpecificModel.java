@@ -1,7 +1,7 @@
-package org.example.Model;
+package org.example.Server.Model;
 
-import org.example.Model.Rules.GameRules;
-import org.example.Model.ToBeNamed.Board;
+import org.example.Server.Model.Rules.GameRules;
+import org.example.Server.Model.ToBeNamed.Board;
 
 public class SpecificModel extends Model {
 

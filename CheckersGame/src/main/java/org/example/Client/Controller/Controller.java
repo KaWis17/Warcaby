@@ -1,11 +1,11 @@
-package org.example.Controller;
+package org.example.Client.Controller;
 
-import org.example.Model.Model;
-import org.example.View.View;
+import org.example.Server.Model.Model;
+import org.example.Client.View.View;
 
 public abstract class Controller {
 
-    private View view;
+    protected View view;
     private Model model;
 
     public void setModel(Model model){

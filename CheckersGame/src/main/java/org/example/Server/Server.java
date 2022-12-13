@@ -8,10 +8,11 @@ public class Server {
 private static Integer count;
 
 public static void main(String[] args) {
-    Integer portNum = Integer.parseInt(args[0]);
+    Integer portNum = 0;
     count = 0;
 
-    try (ServerSocket ss = new ServerSocket(portNum)) {         //Listen For Connections
+    try (ServerSocket ss = new ServerSocket(portNum)) {
+        System.out.println("Port number: "+ss.getLocalPort());
         while (true) {
             Socket client = ss.accept();
 

@@ -1,6 +1,6 @@
-package org.example.Model.Rules;
+package org.example.Server.Model.Rules;
 
-import org.example.Model.state;
+import org.example.Server.Model.state;
 
 public interface GameRules {
 

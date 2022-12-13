@@ -1,6 +1,6 @@
-package org.example.Model.ToBeNamed;
+package org.example.Server.Model.ToBeNamed;
 
-import org.example.Model.Rules.GameRules;
+import org.example.Server.Model.Rules.GameRules;
 
 public class Board{
     Field[][] fields =new Field[8][8];
