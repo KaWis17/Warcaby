@@ -1,7 +1,9 @@
 package org.example.Client.Controller;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.example.Client.Client;
+import org.example.Client.View.GameMenu.MenuInputPort;
 import org.example.Client.View.GameMenu.TextField;
 import org.example.Client.View.GameWindow.GameFrame;
 import org.example.Server.Server;
@@ -36,7 +38,13 @@ public class SpecificController extends Controller {
 
         //Joining game
         view.download(1).download(2).addAction(
-                e -> System.out.println("DOŁĄCZONO DO GRY")
+                e -> {
+                  TextField field = (TextField)view.download(1).download(3);
+                  ((JFrame)view).dispose();
+                  String result = JOptionPane.showInputDialog("Podaj numer portu...");
+                  setView(gameFrame = new GameFrame());
+                  Client.initConnection(port);
+                }
         );
     }
 
