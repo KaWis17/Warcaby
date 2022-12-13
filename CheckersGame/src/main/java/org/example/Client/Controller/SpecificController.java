@@ -15,22 +15,22 @@ public class SpecificController extends Controller {
       //Initializing game
         view.download(1).download(1).addAction(
                 e -> {
-                  System.out.println("1");
                     TextField field = (TextField)view.download(1).download(3);
-                  System.out.println("2");
+                    ((JFrame)view).dispose();
+                    setView(gameFrame = new GameFrame());
+                  new Server(this);
 
-                  new Server(this).start();
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException ex) {
+                        throw new RuntimeException(ex);
+                    }
 
-                  System.out.println("3");
-                  Client.initConnection(port);
-                  System.out.println("4");
+                    Client.initConnection(port);
 
                   model.initialOperation(field.getName());
-                  System.out.println("5");
 
-                  ((JFrame)view).dispose();
-                  System.out.println("6");
-                  setView(gameFrame = new GameFrame());
+
                 }
         );
 
@@ -44,4 +44,5 @@ public class SpecificController extends Controller {
     public void setPort(int port){
       this.port = port;
     }
+
 }

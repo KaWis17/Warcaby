@@ -1,13 +1,23 @@
 package org.example.Client.View.GameWindow.Stats;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 import org.example.Client.View.View;
 
 public class StatsPanel extends JPanel implements View {
+public JTextArea portInfo;
   public StatsPanel(){
     setBackground(Color.red);
+    setLayout(new GridLayout(3,1));
+    add(new JPanel());
+    add(portInfo = new JTextArea("Numer portu: 0000"));
+    add(new JPanel());
+  }
+
+  public void changeText(int port){
+    portInfo.setText("Numer portu: "+port);
   }
   @Override
   public void display() {
@@ -16,7 +26,7 @@ public class StatsPanel extends JPanel implements View {
 
   @Override
   public void addComponent(View view) {
-
+    this.add((Component)view);
   }
 
   @Override

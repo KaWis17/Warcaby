@@ -6,13 +6,18 @@ import javax.swing.JFrame;
 import org.example.Client.View.View;
 
 public class GameFrame extends JFrame implements View {
+  public GamePanel panel;
   public GameFrame(){
     setTitle("Warcaby");
     setSize(500, 500);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setExtendedState(JFrame.MAXIMIZED_BOTH);
-    addComponent(new GamePanel());
+    addComponent(panel = new GamePanel());
     display();
+  }
+
+  public void changePortInfo(int port){
+    panel.statsPanel.changeText(port);
   }
   @Override
   public void display() {

@@ -12,13 +12,15 @@ import org.example.Client.View.View;
 
 public class GamePanel extends JPanel implements View {
 
+  public StatsPanel statsPanel;
   GamePanel(){
     setBackground(Color.BLUE);
     setLayout(new BorderLayout());
-    add(new StatsPanel(), BorderLayout.WEST);
+    add(statsPanel = new StatsPanel(), BorderLayout.WEST);
     add(new BoardPanel(), BorderLayout.CENTER);
     add(new ChatPanel(), BorderLayout.EAST);
   }
+
   @Override
   public void display() {
 

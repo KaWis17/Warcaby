@@ -16,6 +16,10 @@ public abstract class Controller {
         this.view = view;
     }
 
+    public View getView(){
+        return view;
+    }
+
     public abstract void userAction1();
 
     public void setPort(int localPort) {

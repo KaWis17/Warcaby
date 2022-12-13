@@ -15,23 +15,24 @@ public class Server extends Thread {
     Controller controller;
 
     public Server(Controller controller) {
-        model = new SpecificModel(new ClassicRules());
+        model = new SpecificModel(new ClassicRules(), controller.getView());
         controller.setModel(model);
         this.controller = controller;
-        run();
+        start();
     }
 
     @Override
     public void run() {
         try (ServerSocket ss = new ServerSocket(0)) {
             controller.setPort(ss.getLocalPort());
-            System.out.println("Port number: " + ss.getLocalPort());
+            System.out.println("Server:   Port number: " + ss.getLocalPort());
+            ((SpecificModel)model).port = ss.getLocalPort();
             while (true) {
                 Socket client = ss.accept();
 
                 RequestHandler rh = new RequestHandler(client);
                 rh.start();
-                System.out.println("A client has connected!");
+                System.out.println("Server:   A client has connected!");
             }
         } catch (IOException e1) {
             e1.printStackTrace();
